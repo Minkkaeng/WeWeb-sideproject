@@ -19,8 +19,9 @@ export default defineConfig(({ command }) => ({
     exclude: ['@packages/ui', '@packages/utils']
   },
   server: {
+    open: true,
     watch: {
       usePolling: true
     }
   }
-}))
+})
