@@ -125,6 +125,9 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
                   const previewUrl = previewMap[normalizedTitle];
 
                   if (previewUrl) {
+                    const baseUrl = import.meta.env.BASE_URL || '/';
+                    const formattedUrl = `${baseUrl.replace(/\/$/, '')}${previewUrl}`;
+
                     return (
                       <>
                         {!iframeLoaded && (
@@ -134,7 +137,7 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
                           </div>
                         )}
                         <iframe 
-                          src={previewUrl} 
+                          src={formattedUrl} 
                           className={`w-full h-full border-0 transition-opacity duration-1000 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
                           onLoad={() => setIframeLoaded(true)}
                           title="Template Preview"
