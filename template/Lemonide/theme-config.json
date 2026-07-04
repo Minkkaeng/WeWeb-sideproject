@@ -1,0 +1,19 @@
+{
+  "colors": {
+    "primary": "#FFF176",
+    "text": "#1A1A1A",
+    "background": "#FFFFFF",
+    "gray": "#F5F5F5"
+  },
+  "fonts": {
+    "heading": "'Playfair Display', serif",
+    "body": "'Inter', sans-serif"
+  },
+  "borderRadius": "16px",
+  "navLinks": [
+    { "label": "Magazine", "href": "#magazine" },
+    { "label": "Lifestyle", "href": "#lifestyle" },
+    { "label": "Market", "href": "#market" },
+    { "label": "About", "href": "#about" }
+  ]
+}

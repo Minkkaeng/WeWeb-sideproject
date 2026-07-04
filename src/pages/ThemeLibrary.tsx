@@ -92,7 +92,7 @@ const themeLibraryData = [
   {
     id: 7,
     title: "KOOKMIN25",
-    category: "기타",
+    category: "관공서",
     imgColor: "bg-white",
     desktopThumbnail: kookmin25ActualImg,
     mobileThumbnail: kookmin25MobileActualImg,
@@ -116,7 +116,7 @@ const themeLibraryData = [
   {
     id: 10,
     title: "KAREUM",
-    category: "관공서",
+    category: "기업 브랜드",
     imgColor: "bg-[#FAFAFA]",
     desktopThumbnail: kareumDesktopImg,
     mobileThumbnail: kareumMobileImg,
@@ -168,7 +168,7 @@ const themeLibraryData = [
     imgColor: "bg-[#F8F7FF]",
     desktopThumbnail: archivActualImg,
     mobileThumbnail: archivMobileActualImg,
-  }
+  },
 ];
 
 export const ThemeLibrary = () => {
@@ -192,7 +192,7 @@ export const ThemeLibrary = () => {
         <div className="mb-16">
           <h1 className="text-4xl font-bold text-deep-black mb-4 tracking-tighter">Theme Library</h1>
           <p className="text-gray-500 font-light max-w-2xl">
-            다양한 산업군에 최적화된 고품질 웹 템플릿을 경험해 보세요. <br/>
+            다양한 산업군에 최적화된 고품질 웹 템플릿을 경험해 보세요. <br />
             모든 템플릿은 반응형 디자인과 최적화된 UX를 제공합니다.
           </p>
         </div>
