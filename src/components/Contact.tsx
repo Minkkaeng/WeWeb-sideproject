@@ -3,19 +3,34 @@ import { motion } from 'framer-motion';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: 서버 연동 시 여기에 API 호출 추가
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-    setFormData({ name: '', email: '', message: '' });
+    setStatus('submitting');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus('idle'), 3000);
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -33,9 +48,14 @@ export const Contact = () => {
           새로운 프로젝트에 대한 고민이 있으신가요? <br/> 공간에 떠오르는 창의적인 솔루션을 제안해 드립니다.
         </p>
 
-        {isSubmitted && (
+        {status === 'success' && (
           <div className="mb-8 p-4 bg-green-50 text-green-700 rounded-xl text-sm font-medium">
-            메시지가 전송되었습니다. 감사합니다!
+            Message sent. Thank you.
+          </div>
+        )}
+        {status === 'error' && (
+          <div className="mb-8 p-4 bg-red-50 text-red-700 rounded-xl text-sm font-medium">
+            Message could not be sent. Please try again.
           </div>
         )}
 
@@ -81,9 +101,10 @@ export const Contact = () => {
           </div>
           <button
             type="submit"
-            className="mt-4 px-8 py-4 bg-blood-coral text-white font-semibold rounded-xl shadow-floating hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+            disabled={status === 'submitting'}
+            className="mt-4 px-8 py-4 bg-blood-coral text-white font-semibold rounded-xl shadow-floating hover:-translate-y-1 hover:shadow-lg transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            Send Message
+            {status === 'submitting' ? 'Sending...' : 'Send Message'}
           </button>
         </form>
       </motion.div>
