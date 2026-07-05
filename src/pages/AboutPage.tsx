@@ -19,8 +19,8 @@ const tools = [
 
 const values = [
   {
-    title: 'Precision',
-    description: '작은 디테일 하나도 놓치지 않는 정밀함으로 완벽한 결과물을 추구합니다.',
+    title: 'Detail-Oriented',
+    description: '작은 화면 구성부터 문구와 동작까지 꼼꼼하게 확인하며 완성도 높은 웹사이트를 만듭니다.',
     icon: Target,
   },
   {
@@ -29,8 +29,8 @@ const values = [
     icon: Users,
   },
   {
-    title: 'Innovation',
-    description: '틀에 박힌 방식을 넘어 항상 새롭고 효율적인 솔루션을 제시합니다.',
+    title: 'Practical Solutions',
+    description: '불필요하게 복잡한 방식보다 목적에 맞는 현실적이고 효율적인 웹 솔루션을 제안합니다.',
     icon: Zap,
   }
 ];
