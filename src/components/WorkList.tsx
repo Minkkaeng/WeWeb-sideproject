@@ -1,5 +1,5 @@
 import { motion, type Variants } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Assets
 import freshActualImg from '../assets/images/fresh_grove_actual.png';
@@ -14,10 +14,10 @@ import brunLoveTannActualImg from '../assets/images/brun_love_tann_actual.png';
 import brunLoveTannMobileActualImg from '../assets/images/brun_love_tann_mobile_actual.png';
 
 const projects = [
-  { id: 1, title: 'Fresh Grove', category: '쇼핑몰', width: 'col-span-12 md:col-span-4', img: freshActualImg, mobileImg: freshMobileActualImg, path: 'fresh-grove' },
-  { id: 2, title: 'WISE', category: '기업 브랜드', width: 'col-span-12 md:col-span-8', img: wiseActualImg, mobileImg: wiseMobileActualImg, path: 'wise' },
-  { id: 3, title: 'ARCHIV', category: '지식 포털', width: 'col-span-12 md:col-span-6', img: archivActualImg, mobileImg: archivMobileActualImg, path: 'archiv' },
-  { id: 4, title: 'BRUN LØVETANN', category: '쇼핑몰', width: 'col-span-12 md:col-span-6', img: pickActualImg, mobileImg: pickMobileActualImg, path: 'brun-love-tann' },
+  { id: 1, themeId: 1, title: 'Fresh Grove', category: '쇼핑몰', width: 'col-span-12 md:col-span-4', img: freshActualImg, mobileImg: freshMobileActualImg, path: 'fresh-grove' },
+  { id: 2, themeId: 2, title: 'WISE', category: '기업 브랜드', width: 'col-span-12 md:col-span-8', img: wiseActualImg, mobileImg: wiseMobileActualImg, path: 'wise' },
+  { id: 3, themeId: 17, title: 'ARCHIV', category: '지식 포털', width: 'col-span-12 md:col-span-6', img: archivActualImg, mobileImg: archivMobileActualImg, path: 'archiv' },
+  { id: 4, themeId: 3, title: 'BRUN LØVETANN', category: '쇼핑몰', width: 'col-span-12 md:col-span-6', img: pickActualImg, mobileImg: pickMobileActualImg, path: 'brun-love-tann' },
 ];
 
 const cardVariants: Variants = {
@@ -26,6 +26,8 @@ const cardVariants: Variants = {
 };
 
 export const WorkList = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="work" className="py-32 px-6 max-w-7xl mx-auto">
       <div className="mb-16">
@@ -41,7 +43,7 @@ export const WorkList = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            onClick={() => window.location.href = `/template/${project.path}`}
+            onClick={() => navigate('/library', { state: { openThemeId: project.themeId } })}
             className={`group relative rounded-3xl bg-gray-50 overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-700 aspect-[4/3] md:aspect-auto md:min-h-[480px] ${project.width}`}
           >
             {/* Card Content Overlay */}

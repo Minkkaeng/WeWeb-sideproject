@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ThemePreviewModal } from "../components/ThemePreviewModal";
 
 // Assets - Import aliases are consistent with filenames
@@ -175,6 +176,20 @@ export const ThemeLibrary = () => {
   const [selectedCategory, setSelectedCategory] = useState("ALL");
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [activeTheme, setActiveTheme] = useState<any>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.state?.openThemeId) {
+      const themeToOpen = themeLibraryData.find(t => t.id === location.state.openThemeId);
+      if (themeToOpen) {
+        setActiveTheme(themeToOpen);
+        setIsPreviewOpen(true);
+      }
+      // Clear the state so it doesn't re-open on refresh
+      navigate('.', { replace: true, state: {} });
+    }
+  }, [location, navigate]);
 
   const filteredThemes = themeLibraryData.filter((theme) => {
     if (selectedCategory === "ALL") return true;

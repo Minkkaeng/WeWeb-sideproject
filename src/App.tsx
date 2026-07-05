@@ -3,6 +3,7 @@ import { Routes, Route, useLocation, Link } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Landing } from './pages/Landing'
 import { ThemeLibrary } from './pages/ThemeLibrary'
+import { AboutPage } from './pages/AboutPage'
 import { ErrorBoundary } from './components/ErrorBoundary'
 
 // Templates - Folder names now match site identities
@@ -57,6 +58,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/library" element={<ThemeLibrary />} />
+          <Route path="/about" element={<AboutPage />} />
           
           {/* Template Preview Routes - Standardized naming */}
           <Route path="/template/minimalist-studio" element={<MinimalistStudioTemplate />} />

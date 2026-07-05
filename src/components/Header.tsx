@@ -58,7 +58,12 @@ export const Header = () => {
               Library
             </Link>
             <button onClick={() => scrollToSection('work')} className="hover:text-blood-coral transition-all">Work</button>
-            <button onClick={() => scrollToSection('about')} className="hover:text-blood-coral transition-all">About</button>
+            <Link 
+              to="/about" 
+              className={`hover:text-blood-coral transition-all ${location.pathname === '/about' ? 'text-blood-coral font-bold' : ''}`}
+            >
+              About
+            </Link>
             <button onClick={() => scrollToSection('contact')} className="hover:text-blood-coral transition-all">Contact</button>
           </nav>
         </div>
@@ -88,7 +93,7 @@ export const Header = () => {
               <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className={`py-2 ${location.pathname === '/' ? 'text-blood-coral font-bold' : ''}`}>Home</Link>
               <Link to="/library" onClick={() => setIsMobileMenuOpen(false)} className={`py-2 ${location.pathname === '/library' ? 'text-blood-coral font-bold' : ''}`}>Library</Link>
               <button onClick={() => { setIsMobileMenuOpen(false); scrollToSection('work'); }} className="py-2 text-left hover:text-blood-coral transition-all">Work</button>
-              <button onClick={() => { setIsMobileMenuOpen(false); scrollToSection('about'); }} className="py-2 text-left hover:text-blood-coral transition-all">About</button>
+              <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className={`py-2 ${location.pathname === '/about' ? 'text-blood-coral font-bold' : ''}`}>About</Link>
               <button onClick={() => { setIsMobileMenuOpen(false); scrollToSection('contact'); }} className="py-2 text-left hover:text-blood-coral transition-all">Contact</button>
             </div>
           </motion.nav>
