@@ -7,6 +7,9 @@ export default defineConfig(({ command }) => ({
   plugins: [react()],
   base: process.env.VERCEL ? '/' : (command === 'build' ? '/WeWeb/' : '/'),
 
+  build: {
+    chunkSizeWarningLimit: 10000,
+  },
   resolve: {
     alias: {
       '@packages/ui': path.resolve(__dirname, './Monorepo/packages/ui/src'),
