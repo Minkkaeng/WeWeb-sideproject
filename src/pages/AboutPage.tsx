@@ -1,12 +1,20 @@
 import { motion } from 'framer-motion';
-import { PenTool, Video, Layers, Layout, Sparkles, Target, Users, Zap } from 'lucide-react';
+import { PenTool, Video, Layers, Layout, Sparkles, Target, Users, Zap, Code2, Cpu, Wind, Frame, Globe, Cloud, Server, CloudLightning, Share2, Box } from 'lucide-react';
 import { useEffect } from 'react';
 
 const tools = [
-  { id: 'figma', name: 'Figma', icon: Layout, delay: 0.2, color: 'text-purple-500', bg: 'bg-purple-50' },
-  { id: 'premiere', name: 'Premiere Pro', icon: Video, delay: 0.3, color: 'text-blue-500', bg: 'bg-blue-50' },
-  { id: 'aftereffects', name: 'After Effects', icon: Layers, delay: 0.4, color: 'text-indigo-500', bg: 'bg-indigo-50' },
-  { id: 'illustrator', name: 'Illustrator', icon: PenTool, delay: 0.5, color: 'text-orange-500', bg: 'bg-orange-50' },
+  { id: 'react', name: 'React', icon: Code2, delay: 0.1, color: 'text-cyan-500', bg: 'bg-cyan-50' },
+  { id: 'typescript', name: 'TypeScript', icon: Cpu, delay: 0.2, color: 'text-blue-600', bg: 'bg-blue-50' },
+  { id: 'tailwind', name: 'Tailwind CSS', icon: Wind, delay: 0.3, color: 'text-teal-400', bg: 'bg-teal-50' },
+  { id: 'framer', name: 'Framer Motion', icon: Frame, delay: 0.4, color: 'text-fuchsia-500', bg: 'bg-fuchsia-50' },
+  { id: 'nextjs', name: 'Next.js', icon: Globe, delay: 0.5, color: 'text-gray-900', bg: 'bg-gray-100' },
+  { id: 'nodejs', name: 'Node.js', icon: Server, delay: 0.6, color: 'text-green-600', bg: 'bg-green-50' },
+  { id: 'graphql', name: 'GraphQL', icon: Share2, delay: 0.7, color: 'text-pink-500', bg: 'bg-pink-50' },
+  { id: 'vite', name: 'Vite', icon: Zap, delay: 0.8, color: 'text-yellow-500', bg: 'bg-yellow-50' },
+  { id: 'vercel', name: 'Vercel', icon: Cloud, delay: 0.9, color: 'text-gray-800', bg: 'bg-gray-100' },
+  { id: 'aws', name: 'AWS', icon: CloudLightning, delay: 1.0, color: 'text-orange-500', bg: 'bg-orange-50' },
+  { id: 'docker', name: 'Docker', icon: Box, delay: 1.1, color: 'text-blue-500', bg: 'bg-blue-50' },
+  { id: 'figma', name: 'Figma', icon: Layout, delay: 1.2, color: 'text-purple-500', bg: 'bg-purple-50' },
 ];
 
 const values = [
@@ -79,18 +87,18 @@ export const AboutPage = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-deep-black mb-6">Meticulous Detail</h2>
+              <h2 className="text-4xl font-bold text-deep-black mb-6">Technology Stack</h2>
               <div className="w-12 h-1 bg-blood-coral mb-8 rounded-full"></div>
               <p className="text-lg text-gray-600 leading-relaxed font-light mb-6">
-                디자인부터 영상 편집까지, 감각적인 기술력과 디테일한 설계 능력으로 프로젝트를 공중에 띄우듯 한 차원 끌어올립니다. 
+                최신 웹 프레임워크와 강력한 기술 스택을 활용하여 시각적으로 뛰어나면서도 성능이 압도적인 디지털 경험을 제공합니다.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed font-light">
-                우리가 사용하는 모든 도구는 최적의 결과물을 위한 정밀한 조절을 거치며, 시각적인 아름다움뿐만 아니라 사용자 경험의 본질을 깊이 고민합니다.
+                빠른 렌더링, 부드러운 인터랙션, 그리고 완벽한 반응형 설계를 통해 어떠한 환경에서도 쾌적하고 아름다운 웹 환경을 구축합니다.
               </p>
             </motion.div>
           </div>
           
-          <div className="lg:w-1/2 w-full grid grid-cols-2 gap-4 lg:gap-6">
+          <div className="lg:w-1/2 w-full grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
             {tools.map((tool) => {
               const Icon = tool.icon;
               return (
