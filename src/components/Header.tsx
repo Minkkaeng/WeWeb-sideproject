@@ -47,24 +47,33 @@ export const Header = () => {
           <nav className="flex gap-8 text-sm font-medium text-gray-600">
             <Link 
               to="/" 
-              className={`hover:text-blood-coral transition-all ${location.pathname === '/' ? 'text-blood-coral font-bold' : ''}`}
+              data-text="Home"
+              className={`inline-flex flex-col items-center justify-center after:content-[attr(data-text)] after:block after:font-bold after:invisible after:h-0 after:overflow-hidden hover:text-blood-coral transition-colors ${location.pathname === '/' ? 'text-blood-coral font-bold' : ''}`}
             >
               Home
             </Link>
             <Link 
               to="/library" 
-              className={`hover:text-blood-coral transition-all ${location.pathname === '/library' ? 'text-blood-coral font-bold' : ''}`}
+              data-text="Library"
+              className={`inline-flex flex-col items-center justify-center after:content-[attr(data-text)] after:block after:font-bold after:invisible after:h-0 after:overflow-hidden hover:text-blood-coral transition-colors ${location.pathname === '/library' ? 'text-blood-coral font-bold' : ''}`}
             >
               Library
             </Link>
 
             <Link 
               to="/about" 
-              className={`hover:text-blood-coral transition-all ${location.pathname === '/about' ? 'text-blood-coral font-bold' : ''}`}
+              data-text="About"
+              className={`inline-flex flex-col items-center justify-center after:content-[attr(data-text)] after:block after:font-bold after:invisible after:h-0 after:overflow-hidden hover:text-blood-coral transition-colors ${location.pathname === '/about' ? 'text-blood-coral font-bold' : ''}`}
             >
               About
             </Link>
-            <button onClick={() => scrollToSection('contact')} className="hover:text-blood-coral transition-all">Contact</button>
+            <button 
+              onClick={() => scrollToSection('contact')} 
+              data-text="Contact"
+              className="inline-flex flex-col items-center justify-center after:content-[attr(data-text)] after:block after:font-bold after:invisible after:h-0 after:overflow-hidden hover:text-blood-coral transition-colors"
+            >
+              Contact
+            </button>
           </nav>
         </div>
 
