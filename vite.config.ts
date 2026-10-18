@@ -5,7 +5,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: process.env.VERCEL ? '/' : (command === 'build' ? '/WeWeb/' : '/'),
+  base: process.env.VERCEL ? '/' : (command === 'build' ? '/WeWeb-sideproject/' : '/'),
 
   build: {
     chunkSizeWarningLimit: 10000,
